@@ -1,65 +1,21 @@
-from game.terminal_service import TerminalService
-from game.hider import Hider
-from game.seeker import Seeker
+from game.wordblanks import WordBlanks
+from game.wordgenerator import UnknownWordGenerator
+from game.parachute import Parachute
 
 
 class Director:
-    """A person who directs the game. 
-    
-    The responsibility of a Director is to control the sequence of play.
-
-    Attributes:
-        puzzle (Puzzle): The game's random word.
-        is_playing (boolean): Whether or not to keep playing.
-        jumper (Jumper): The game's jumber.
-        terminal_service: For getting and displaying information on the terminal.
-    """
-
+    #holds all the defs and directs the game
     def __init__(self):
-        """Constructs a new Director.
         
-        Args:
-            self (Director): an instance of Director.
-        """
-        self._puzzle = Puzzle()
-        self._is_playing = True
-        self._jumper = Jumper()
-        self._terminal_service = TerminalService()
+        return
     def start_game(self):
-        """Starts the game by running the main game loop.
-        
-        Args:
-            self (Director): an instance of Director.
-        """
-        while self._is_playing:
-            self._get_inputs()
-            self._do_updates()
-            self._do_outputs()
-
-    def _get_inputs(self):
-        """Moves the seeker to a new location.
-
-        Args:
-            self (Director): An instance of Director.
-        """
-        new_location = self._terminal_service.read_number("\nEnter a location [1-1000]: ") # function from terminal file
-        self._seeker.move_location(new_location)
-        
-    def _do_updates(self):
-        """Keeps watch on where the seeker is moving.
-
-        Args:
-            self (Director): An instance of Director.
-        """
-        self._hider.watch_seeker(self._seeker)
-        
-    def _do_outputs(self):
-        """Provides a hint for the seeker to use.
-
-        Args:
-            self (Director): An instance of Director.
-        """
-        hint = self._hider.get_hint()
-        self._terminal_service.write_text(hint)
-        if self._hider.is_found():
-            self._is_playing = False
+        self._blanks = WordBlanks()
+        generator = UnknownWordGenerator()
+        stick_figure = Parachute()
+        while stick_figure.parachute_life() == True and self._blanks.checker() == False:
+            self._blanks.print_blanks()
+            stick_figure.print_parachute()
+            if self._blanks.guess_letter(generator.get_unknown_word()) == False:
+                stick_figure.cut_chute()
+        self._blanks.print_blanks()
+        stick_figure.print_parachute()
