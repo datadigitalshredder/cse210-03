@@ -1,7 +1,7 @@
 class WordBlanks:
 
     def __init__(self):
-        self.blankString = list("_ _ _ _ _")
+        self._blankString = list("_ _ _ _ _")
     #def for a guess, take input from Director.
     def guess_letter(self, unknown_word):
         guess = input("Guess a letter (a/z): ")
@@ -15,13 +15,13 @@ class WordBlanks:
         return False
 
     def checker(self):
-        if "_" in self.blankString:
+        if "_" in self._blankString:
             return False
         else:
             return True
 
 
     def print_blanks(self):
-        print("".join(self.blankString))
+        print("".join(self._blankString))
         print("")
     #returns inputs
