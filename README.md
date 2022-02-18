@@ -1,3 +1,9 @@
+## Authors
+* Cooper Featherstone (Cooperfeatherstone13@gmail.com) - Incorporated the principle of encapsulation in the code
+* Innocent Hove (hov21003@byui.edu) - Incorporated the principle of encapsulation in the code
+* Njato Ragodondrasana (rag21002@byui.edu) - 
+* Ryan Alvord (ryanalvord@hotmail.com) - Designed code following game specifications
+
 # Jumper
 Jumper is a game in which the player seeks to solve a puzzle by guessing the letters of a secret word one at a time. The player guesses the letter in the puzzle, if the guess is correct, the letter is revealed. If not correct, the player loses a line in their parachute. The game is over when the puzzle is complete or when the player has no more parachute.
 
@@ -21,9 +27,3 @@ root                    (project root folder)
 
 ## Required Technologies
 * Python 3.8.0
-
-## Authors
-* Cooper Featherstone (Cooperfeatherstone13@gmail.com) - Incorporated the principle of encapsulation in the code
-* Innocent Hove (hov21003@byui.edu) - Incorporated the principle of encapsulation in the code
-* Njato Ragodondrasana (rag21002@byui.edu) - 
-* Ryan Alvord (ryanalvord@hotmail.com) - Designed code following game specifications
